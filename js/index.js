@@ -20,6 +20,23 @@
 
 function renderizarDatosUsuario(datos) {
   // Escribe aquí tu código para mostrar la foto, nombre completo e email en div.tarjeta
+  // 1. Extraer el primer usuario del arreglo de resultados
+  const usuario = datos.results[0];
+
+  // 2. Extraer las propiedades necesarias
+  const foto = usuario.picture.large;
+  const nombreCompleto = `${usuario.name.title} ${usuario.name.first} ${usuario.name.last}`;
+  const email = usuario.email;
+
+  // 3. Seleccionar el contenedor en el DOM
+  const tarjeta = document.querySelector('.tarjeta');
+
+  // 4. Renderizar la tarjeta con los datos del usuario
+  tarjeta.innerHTML = `
+    <img src="${foto}" alt="${nombreCompleto}" />
+    <h2>${nombreCompleto}</h2>
+    <p>${email}</p>
+  `;
 }
 
 /* -------------------------------- CONSIGNA 2 -------------------------------- */
@@ -38,3 +55,4 @@ function cargarUsuario() {
     })
     .catch((error) => console.error('Error al obtener el usuario:', error));
 }
+cargarUsuario();
