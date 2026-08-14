@@ -26,7 +26,7 @@ function renderizarDatosUsuario(datos) {
   // 2. Extraer las propiedades necesarias
   const foto = usuario.picture.large;
   const nombreCompleto = `${usuario.name.title} ${usuario.name.first} ${usuario.name.last}`;
-  const email = usuario.email;
+  const {email} = usuario;
 
   // 3. Seleccionar el contenedor en el DOM
   const tarjeta = document.querySelector('.tarjeta');
