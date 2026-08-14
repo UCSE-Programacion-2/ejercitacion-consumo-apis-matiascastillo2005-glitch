@@ -30,4 +30,11 @@ function renderizarDatosUsuario(datos) {
 
 function cargarUsuario() {
   // Escribe aquí tu código para realizar un nuevo pedido a la API y actualizar la tarjeta
+  // Petición a la API local usando fetch
+  fetch('http://localhost:3000/api/user')
+    .then((response) => response.json())
+    .then((datos) => {
+      renderizarDatosUsuario(datos);
+    })
+    .catch((error) => console.error('Error al obtener el usuario:', error));
 }
